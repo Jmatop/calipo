@@ -14,6 +14,7 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
+      echo "| 16 - Borrar metadatos (no borra todos)                   |";
       echo "| 15 - Cambiar metadato de archivo                         |";
       echo "| 14 - Ver metadatos de un archivo                         |";
       echo "| 13 - Extraer texto de imagen                             |";
@@ -116,7 +117,7 @@ do
 	echo $texto > .topsecret.txt && cat $nimagen .topsecret.txt > $nimagen
 	;;
 	11)
-	read -p "Dime el de la imagen: " img
+	read -p "Dime nombre de la imagen: " img
 	strings $img	
 	;;
 	12)
@@ -127,19 +128,24 @@ do
 	steghide embed -ef .pato.txt -cf $nimagen
 	;;
 	13)
-	read -p "Dime el de la imagen: " img
+	read -p "Dime nombre del archivo: " img
 	steghide extract -sf $nimagen	
 	;;
 	14)
-	read -p "Dime el del archivo: " img
+	read -p "Dime nombre del archivo: " img
 	exiftool -s $img
 	;;
-	14)
-	read -p "Dime el del archivo: " img
+	15)
+	read -p "Dime nombre del archivo: " arch
 	read -p "Dime el nombre del metadato que quieres modificar: "
 	read -p "Dime el nuevo valor que quieres añadirle: "
-	exiftool -'$cambio'+'='+'$nombre' $img
+	exiftool -'$cambio'+'='+'$nombre' $arch
 	;;
+	16)
+	read -p "Dime el del archivo: " arch
+	exiftool -all= $arch
+	;;
+	
 	20)
 		exit
 	;;
