@@ -105,12 +105,12 @@ do
 	msfconsole -q -r exploit.rc
 	;;
 	10)
-	read -p "Dime el texto que quieres meter en una imagen" texto
-	read -p "Dime el nombre de la imagen" nimagen
+	read -p "Dime el texto que quieres meter en una imagen: " texto
+	read -p "Dime el nombre de la imagen: " nimagen
 	echo $texto > .topsecret.txt && cat $nimagen .topsecret.txt > $nimagen
 	;;
 	11)
-	read -p "Dime el de la imagen" img
+	read -p "Dime el de la imagen: " img
 	strings $img	
 	;;
 	20)
