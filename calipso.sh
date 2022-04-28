@@ -14,6 +14,8 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
+      echo "| 13 - Extraer texto de imagen                             |";
+      echo "| 12 - Fusionar texto a imagen                             |";
       echo "| 11 - Mostrar contenido oculto de una imagen              |";
       echo "| 10 - Añadir contenido a una imagen                       |";
       echo "|  9 - Ejecutar Exploit                                    |";
@@ -113,6 +115,16 @@ do
 	read -p "Dime el de la imagen: " img
 	strings $img	
 	;;
+	12)
+	read -p "Dime el texto que quieres meter en una imagen: " texto
+	read -p "Dime el nombre de la imagen: " nimagen
+	
+	echo $texto > .pato.txt 
+	steghide embed -ef .pato.txt -cf $nimagen
+	;;
+	13)
+	read -p "Dime el de la imagen: " img
+	steghide extract -sf $nimagen	
 	20)
 		exit
 	;;
