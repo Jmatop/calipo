@@ -140,6 +140,7 @@ do
 	11)
 	read -p "Dime nombre de la imagen: " img
 	strings $img	
+	sleep 10
 	;;
 	12)
 	read -p "Dime el texto que quieres meter en una imagen: " texto
