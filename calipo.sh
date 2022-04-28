@@ -117,8 +117,10 @@ do
 	7)
 	read -p "Dime el usuario que quieres investigar: " usr
 
-	python3 /home/calipso/sherlock/sherlock/sherlock.py $usr
+	cd sherlock
+	python3 sherlock $usr
 	sleep 60
+	cd ..
 	;;
 	8)
 
