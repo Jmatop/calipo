@@ -38,16 +38,35 @@ do
       case $opcion in
 	
 	0)
+	echo "actualizando librerias"
+	sleep 2
 	sudo apt update
+	echo "instalando metasploit"
+	sleep 2
 	curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
 	chmod +x msfinstall && sudo ./msfinstall
+	echo "instalando Hydra"
+	sleep 2
 	sudo apt install --yes hydra
+	echo "instalando NMAP"
+	sleep 2
 	sudo apt install --yes nmap
+	echo "instalando DSNIFF"
+	sleep 2
 	sudo apt install --yes dsniff
+	echo "instalando SSH"
+	sleep 2
 	sudo apt install --yes ssh
-	sudo apt install --yes nftables ​
+	echo "instalando NFTABLES"
+	sleep 2
+	sudo apt install --yes nftables 
+	echo "instalando EXIFTOOL"
+	sleep 2
 	sudo apt install --yes libimage-exiftool-perl
-	wget https://github.com/sherlock-project/sherlock.git
+	echo "instalando Sherlock"
+	sleep 2
+	git clone https://github.com/sherlock-project/sherlock.git
+	python3 -m pip install -r sherlock/requirements.txt
 	;;
         1)
 	clear
