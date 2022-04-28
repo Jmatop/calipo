@@ -14,7 +14,7 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
-#     echo "| 10 - Añadir contenido a una imagen                       |";
+      echo "| 10 - Añadir contenido a una imagen                       |";
       echo "|  9 - Ejecutar Exploit                                    |";
       echo "|  8 - Crear Exploit                                       |";
       echo "|  7 - Sherlock                                            |";
