@@ -14,6 +14,7 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
+      echo "| 11 - Mostrar contenido oculto de una imagen              |";
       echo "| 10 - Añadir contenido a una imagen                       |";
       echo "|  9 - Ejecutar Exploit                                    |";
       echo "|  8 - Crear Exploit                                       |";
@@ -107,6 +108,10 @@ do
 	read -p "Dime el texto que quieres meter en una imagen" texto
 	read -p "Dime el nombre de la imagen" nimagen
 	echo $texto > .topsecret.txt && cat $nimagen .topsecret.txt > $nimagen
+	;;
+	11)
+	read -p "Dime el de la imagen" img
+	strings $img	
 	;;
 	20)
 		exit
