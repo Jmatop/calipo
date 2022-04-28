@@ -14,7 +14,7 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
-#     echo "| 10 -                                                     |";
+#     echo "| 10 - Añadir contenido a una imagen                       |";
       echo "|  9 - Ejecutar Exploit                                    |";
       echo "|  8 - Crear Exploit                                       |";
       echo "|  7 - Sherlock                                            |";
@@ -102,6 +102,11 @@ do
 
 	9)
 	msfconsole -q -r exploit.rc
+	;;
+	10)
+	read -p "Dime el texto que quieres meter en una imagen" texto
+	read -p "Dime el nombre de la imagen" nimagen
+	echo $texto > .topsecret.txt && .topsecret.txt > $nimagen
 	;;
 	20)
 		exit
