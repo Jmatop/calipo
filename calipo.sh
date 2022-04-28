@@ -14,6 +14,8 @@ do
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - Salir                                               |";
+      echo "| 15 - Cambiar metadato de archivo                         |";
+      echo "| 14 - Ver metadatos de un archivo                         |";
       echo "| 13 - Extraer texto de imagen                             |";
       echo "| 12 - Fusionar texto a imagen                             |";
       echo "| 11 - Mostrar contenido oculto de una imagen              |";
@@ -43,6 +45,8 @@ do
 	sudo apt install --yes dsniff
 	sudo apt install --yes ssh
 	sudo apt install --yes nftables ​
+	sudo apt install --yes libimage-exiftool-perl
+	wget https://github.com/sherlock-project/sherlock.git
 	;;
         1)
 	clear
@@ -125,6 +129,17 @@ do
 	13)
 	read -p "Dime el de la imagen: " img
 	steghide extract -sf $nimagen	
+	;;
+	14)
+	read -p "Dime el del archivo: " img
+	exiftool -s $img
+	;;
+	14)
+	read -p "Dime el del archivo: " img
+	read -p "Dime el nombre del metadato que quieres modificar: "
+	read -p "Dime el nuevo valor que quieres añadirle: "
+	exiftool -'$cambio'+'='+'$nombre' $img
+	;;
 	20)
 		exit
 	;;
