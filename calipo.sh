@@ -134,12 +134,13 @@ do
 	14)
 	read -p "Dime nombre del archivo: " img
 	exiftool -s $img
+	sleep 10
 	;;
 	15)
 	read -p "Dime nombre del archivo: " arch
-	read -p "Dime el nombre del metadato que quieres modificar: "
-	read -p "Dime el nuevo valor que quieres añadirle: "
-	exiftool -$cambio=$nombre $arch
+	read -p "Dime el nombre del metadato que quieres modificar: " meta
+	read -p "Dime el nuevo valor que quieres añadirle: " valor
+	exiftool -$meta=$valor $arch
 	;;
 	16)
 	read -p "Dime el del archivo: " arch
