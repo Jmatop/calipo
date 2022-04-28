@@ -139,7 +139,7 @@ do
 	read -p "Dime nombre del archivo: " arch
 	read -p "Dime el nombre del metadato que quieres modificar: "
 	read -p "Dime el nuevo valor que quieres añadirle: "
-	exiftool -'$cambio'+'='+'$nombre' $arch
+	exiftool -$cambio=$nombre $arch
 	;;
 	16)
 	read -p "Dime el del archivo: " arch
