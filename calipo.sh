@@ -38,32 +38,35 @@ do
       case $opcion in
 	
 	0)
-	echo "actualizando librerias"
+	echo "ACTUALIZANDO LIBRERIAS"
 	sleep 2
 	sudo apt update
-	echo "instalando metasploit"
+	echo "INSTALANDO metasploit"
 	sleep 2
 	curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
 	chmod +x msfinstall && sudo ./msfinstall
-	echo "instalando Hydra"
+	echo "INSTALANDO Hydra"
 	sleep 2
 	sudo apt install --yes hydra
-	echo "instalando NMAP"
+	echo "INSTALANDO NMAP"
 	sleep 2
 	sudo apt install --yes nmap
-	echo "instalando DSNIFF"
+	echo "INSTALANDO DSNIFF"
 	sleep 2
 	sudo apt install --yes dsniff
-	echo "instalando SSH"
+	echo "INSTALANDO SSH"
 	sleep 2
 	sudo apt install --yes ssh
-	echo "instalando NFTABLES"
+	echo "INSTALANDO NFTABLES"
 	sleep 2
 	sudo apt install --yes nftables 
-	echo "instalando EXIFTOOL"
+	echo "INSTALANDO EXIFTOOL"
 	sleep 2
 	sudo apt install --yes libimage-exiftool-perl
-	echo "instalando Sherlock"
+	echo "INSTALANDO STEGHIDE"
+	sleep 2
+	sudo apt install --yes steghide
+	echo "INSTALANDO SHERLOCK"
 	sleep 2
 	git clone https://github.com/sherlock-project/sherlock.git
 	python3 -m pip install -r sherlock/requirements.txt
@@ -141,7 +144,8 @@ do
 	10)
 	read -p "Dime el texto que quieres meter en una imagen: " texto
 	read -p "Dime el nombre de la imagen: " nimagen
-	echo $texto > .topsecret.txt && cat $nimagen .topsecret.txt > $nimagen
+	read -p "Dime el nombre de la imagen Final: " fimagen
+	echo "$texto" > .topsecret.txt && cat $nimagen .topsecret.txt > $fimagen
 	;;
 	11)
 	read -p "Dime nombre de la imagen: " img
@@ -158,7 +162,8 @@ do
 	;;
 	13)
 	read -p "Dime nombre del archivo: " img
-	steghide extract -sf $nimagen	
+	steghide extract -sf $img	
+	sleep 5
 	;;
 	14)
 	read -p "Dime nombre del archivo: " img
