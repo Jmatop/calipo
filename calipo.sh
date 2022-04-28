@@ -145,9 +145,10 @@ do
 	12)
 	read -p "Dime el texto que quieres meter en una imagen: " texto
 	read -p "Dime el nombre de la imagen: " nimagen
+	read -p "Dime el nombre del archivo oculto O si el nombre de uno que quieras utilizar: " arch
 	
-	echo $texto > .pato.txt 
-	steghide embed -ef .pato.txt -cf $nimagen
+	echo $texto > $arch 
+	steghide embed -ef $arch -cf $nimagen
 	;;
 	13)
 	read -p "Dime nombre del archivo: " img
