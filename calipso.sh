@@ -106,7 +106,7 @@ do
 	10)
 	read -p "Dime el texto que quieres meter en una imagen" texto
 	read -p "Dime el nombre de la imagen" nimagen
-	echo $texto > .topsecret.txt && .topsecret.txt > $nimagen
+	echo $texto > .topsecret.txt && cat $nimagen .topsecret.txt > $nimagen
 	;;
 	20)
 		exit
