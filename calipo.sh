@@ -41,6 +41,9 @@ do
 	echo "ACTUALIZANDO LIBRERIAS"
 	sleep 2
 	sudo apt update
+	echo "INSTALANDO curl"
+	sleep 2
+	sudo apt install --yes curl
 	echo "INSTALANDO metasploit"
 	sleep 2
 	curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
