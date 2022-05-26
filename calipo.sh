@@ -48,8 +48,11 @@ do
         sleep 2
         sudo apt update
         echo "instalando metasploit"
+	sleep 2
+	echo "descagando diccionario"
+	wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
+ 	mv 10-million-password-list-top-1000000.txt diccionario.txt
         sleep 2
-        curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfins>
         chmod +x msfinstall && sudo ./msfinstall
         echo "instalando Hydra"
         sleep 2
@@ -77,7 +80,7 @@ do
         git clone https://github.com/sherlock-project/sherlock.git
         python3 -m pip install -r sherlock/requirements.txt
         wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
-        mv 10-million-password-list-top-1000000.txt diccionario.txt
+       
         
         ;;
         1)
