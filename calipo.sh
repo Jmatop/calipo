@@ -15,7 +15,7 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";
       echo "|----------------------------------------------------------|";
-      echo "|                     34.226.81.227                        |";
+      echo "|                     54.165.72.80                         |";
       echo "|----------------------------------------------------------|";
       echo "|----------------------------------------------------------|";
       echo "| 20 - TCP Attack                                          |";
@@ -83,7 +83,7 @@ do
         git clone https://github.com/sherlock-project/sherlock.git
         python3 -m pip install -r sherlock/requirements.txt
         wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
-       
+        mv 10-million-password-list-top-1000000.txt diccionario.txt
         
         ;;
         1)
@@ -195,7 +195,7 @@ do
         exiftool -all= $arch
         ;;
         17)
-        read -p "Dime la ip de la Víctima: "ip
+        read -p "Dime la ip de la Víctima: " ip
         nping --arp --rate 3000 -c 100000 $ip
 	;;
         18)
