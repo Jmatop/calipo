@@ -15,7 +15,8 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";    
       echo "|----------------------------------------------------------|";
-      echo "| 21 - OSINT Instagram                                     |";
+      echo "| 22 - OSINT Instagram                                     |";
+      echo "| 21 - OSINT Install                                       |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - TCP Attack                                          |";
       echo "| 19 - UDP Attack                                          |";
@@ -84,10 +85,7 @@ do
         wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
         mv 10-million-password-list-top-1000000.txt diccionario.txt
 	sleep 2
-	git clone https://github.com/Datalux/Osintgram.git
-	cd Osintgram
-	make setup
-	cd ..
+	
 
 
         ;;
@@ -216,6 +214,12 @@ do
         nping --tcp --flags syn --rate 3000 -c 100000 $ip
 	;;
 	21)
+	git clone https://github.com/Datalux/Osintgram.git
+	cd Osintgram
+	make setup
+	cd ..
+	;;
+	22)
 	cd Osintgram/
 	read -p "Dime el usuario de la victima: " $urs
         python3 main.py $urs
