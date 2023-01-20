@@ -225,6 +225,7 @@ do
 	cd Osintgram/
 	read -p "Dime el usuario de la victima: " $urs
         python3 main.py $urs
+	sleep 20
 	;;
         30)
                 exit
