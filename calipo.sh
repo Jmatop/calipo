@@ -216,7 +216,9 @@ do
 	21)
 	git clone https://github.com/Datalux/Osintgram.git
 	cd Osintgram
+	sleep 5
 	make setup
+	sleep 20
 	cd ..
 	;;
 	22)
