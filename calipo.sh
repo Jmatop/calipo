@@ -85,15 +85,8 @@ do
         mv 10-million-password-list-top-1000000.txt diccionario.txt
 	sleep 2
 	git clone https://github.com/Datalux/Osintgram.git
-	cd Osintgram/config/
-	rm credentials.ini
-	read -p "Dime el usuario: " usrr
-	read -p "Dime la contraseña" pwww
-	touch credentials.ini
-	echo "[Credentials]" >> credentials.ini
-	echo "username = $usrr" >> credentials.ini
-	echo "password = $pwww" >> credentials.ini
-	cd ..
+	cd Osintgram
+	make setup
 	cd ..
 
 
@@ -224,7 +217,7 @@ do
 	;;
 	21)
 	cd Osintgram/
-	read -p "Dime el usuario de la victima" $urs
+	read -p "Dime el usuario de la victima: " $urs
         python3 main.py $urs
 	;;
         30)
