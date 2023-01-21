@@ -21,6 +21,8 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";    
       echo "|----------------------------------------------------------|";
+      echo "| 24 - Geo                                                 |"; 
+      echo "|----------------------------------------------------------|";
       echo "| 23 - OSINT Instagram                                     |";
       echo "| 22 - OSINT Install                                       |";
       echo "|----------------------------------------------------------|";
@@ -132,7 +134,19 @@ do
         mv 10-million-password-list-top-1000000.txt diccionario.txt
 
 	sleep 2
-
+	
+	sudo apt install curl
+	
+	git clone https://github.com/ultrasecurity/Storm-breaker
+	
+	cd Storm-breaker/
+	
+	sudo bash install.sh
+	
+	sudo python3 -m pip install -r requirements.txt
+	
+	cd ..
+	
         ;;
 
         1)
