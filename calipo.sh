@@ -278,7 +278,7 @@ do
 
         cd sherlock
 
-        python3 sherlock --timeout 1 $usr
+        python3 sherlock $usr
 
         sleep 60
 
