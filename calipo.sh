@@ -21,7 +21,7 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";    
       echo "|----------------------------------------------------------|";
-      echo "| 24 - Geo                                                 |"; 
+      echo "| 24 - Phishing                                            |"; 
       echo "|----------------------------------------------------------|";
       echo "| 23 - OSINT Instagram                                     |";
       echo "| 22 - OSINT Install                                       |";
@@ -137,13 +137,13 @@ do
 	
 	sudo apt install curl
 	
-	git clone https://github.com/ultrasecurity/Storm-breaker
+	sudo apt install git python3 php openssh-client -y
 	
-	cd Storm-breaker/
+	git clone https://github.com/KasRoudra/PyPhisher
+
+	cd PyPhisher
 	
-	sudo bash install.sh
-	
-	sudo python3 -m pip install -r requirements.txt
+	pip3 install -r files/requirements.txt
 	
 	cd ..
 	
@@ -425,8 +425,13 @@ do
       	cd ..
 
 	      ;;
-
-        30)
+	24)
+	
+	python3 PyPhisher/pyphisher.py
+	
+	;;
+        
+	30)
         
         exit
 
