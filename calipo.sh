@@ -21,6 +21,7 @@ do
       echo "|----------------------------------------------------------|";
       echo "| 30 - Salir                                               |";    
       echo "|----------------------------------------------------------|";
+      echo "| 25 - Decider CISA                                        |";
       echo "| 24 - Phishing                                            |"; 
       echo "|----------------------------------------------------------|";
       echo "| 23 - OSINT Instagram                                     |";
@@ -147,6 +148,8 @@ do
 	
 	cd ..
 	
+	git clone https://github.com/cisagov/decider.git
+	sudo pip3 install -r decider/requirements.txt
         ;;
 
         1)
@@ -428,6 +431,10 @@ do
 	24)
 	
 	python3 PyPhisher/pyphisher.py
+	
+	;;
+	
+	25)
 	
 	;;
         
