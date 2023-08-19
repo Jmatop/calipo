@@ -3,66 +3,10 @@
 clear
 
 # Colores
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
-
-while true
-do
-    clear
-    echo -e "${CYAN}"
-    echo " ----------------------------------------------------------"
-    echo "|                  (っ◔◡◔)っ  Menu                         |"
-    echo "|----------------------------------------------------------|"
-    echo "|                         ${GREEN}OPCIONES${CYAN}                         |"
-    echo "|----------------------------------------------------------|"
-    echo "| ${GREEN}30${CYAN} - Salir                                               |"
-    echo "|----------------------------------------------------------|"
-    echo "| ${GREEN}25${CYAN} - Decider CISA                                        |"
-    echo "| ${GREEN}24${CYAN} - Phishing                                            |"
-    echo "|----------------------------------------------------------|"
-    echo "| ${GREEN}23${CYAN} - OSINT Instagram                                     |"
-    echo "| ${GREEN}22${CYAN} - OSINT Install                                       |"
-    echo "|----------------------------------------------------------|"
-    echo "| ${GREEN}21${CYAN} - TCP Attack                                          |"
-    echo "| ${GREEN}20${CYAN} - UDP Attack                                          |"
-    echo "| ${GREEN}19${CYAN} - ICMP Attack                                         |"
-    echo "| ${GREEN}18${CYAN} - ARP Attack                                          |"
-    echo "|----------------------------------------------------------|"
-    echo "| ${GREEN}17${CYAN} - Hydra GMAIL                                         |"
-    echo "| ${GREEN}16${CYAN} - Borrar metadatos (no borra todos)                   |"
-    echo "| ${GREEN}15${CYAN} - Cambiar metadato de archivo                         |"
-    echo "| ${GREEN}14${CYAN} - Ver metadatos de un archivo                         |"
-    echo "| ${GREEN}13${CYAN} - Extraer texto de imagen                             |"
-    echo "| ${GREEN}12${CYAN} - Fusionar texto a imagen                             |"
-    echo "| ${GREEN}11${CYAN} - Mostrar contenido oculto de una imagen              |"
-    echo "| ${GREEN}10${CYAN} - Añadir contenido a una imagen                       |"
-    echo "|  ${GREEN}9${CYAN} - Ejecutar Exploit                                    |"
-    echo "|  ${GREEN}8${CYAN} - Crear Exploit                                       |"
-    echo "|  ${GREEN}7${CYAN} - Sherlock                                            |"
-    echo "|  ${GREEN}6${CYAN} - Restablecer red                                     |"
-    echo "|  ${GREEN}5${CYAN} - Dejar sin red                                       |"
-    echo "|  ${GREEN}4${CYAN} - Ver S.O de un equipo                                |"
-    echo "|  ${GREEN}3${CYAN} - Nmap toda la red                                    |"
-    echo "|  ${GREEN}2${CYAN} - SSH DirectAT                                        |"
-    echo "|  ${GREEN}1${CYAN} - Hydra SSH                                           |"
-    echo "|  ${GREEN}0${CYAN} - Instalar dependencias                               |"
-    echo " ----------------------------------------------------------"
-    echo -e "${NC}"
-
-    read -p "Escoge opción: " opcion
-
-    case $opcion in
-#!/bin/bash
-
-clear
-
-# Colores
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-NC='\033[0m' # No Color
+CYAN="\033[0;36m"
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+NC="\033[0m" # No Color
 
 while true
 do
@@ -313,12 +257,6 @@ do
             exit
             ;;
         *)
-            echo -e "${RED}Opción no válida. Introduce un número válido.${NC}"
-            sleep 2
-            ;;
-    esac
-done
-
             echo -e "${RED}Opción no válida. Introduce un número válido.${NC}"
             sleep 2
             ;;
