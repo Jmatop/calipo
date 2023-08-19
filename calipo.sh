@@ -79,6 +79,7 @@ do
         sleep 2
 
         chmod +x msfinstall && sudo ./msfinstall
+	sudo snap install metasploit-framework
 
         echo "instalando Hydra"
 
