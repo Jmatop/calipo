@@ -127,7 +127,12 @@ do
 
         sleep 2
 
-        git clone https://github.com/sherlock-project/sherlock.git
+ 	sudo apt install python3-pip
+        sudo apt install python3-pandas
+	sudo apt install python3-requests-futures
+	sudo apt install python3-torrequest
+
+	git clone https://github.com/sherlock-project/sherlock.git
 
         python3 -m pip install -r sherlock/requirements.txt
 
