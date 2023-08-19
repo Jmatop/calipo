@@ -400,6 +400,7 @@ do
       	git clone https://github.com/Datalux/Osintgram.git
 
       	sudo pip install geopy
+     	sudo python3-geopy
 
       	cd Osintgram
 
