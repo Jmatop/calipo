@@ -64,7 +64,7 @@ menu="
 
 for ((i = 0; i < ${#menu}; i++)); do
     echo -n "${menu:$i:1}"
-    sleep 0.001
+    sleep 0.005
 done
 
 while [ opcion!=0 ]
