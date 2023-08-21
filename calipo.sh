@@ -42,7 +42,7 @@ do
       echo "| 10 - Añadir contenido a una imagen                       |";
       echo "|  9 - Ejecutar Exploit                                    |";
       echo "|  8 - Crear Exploit                                       |";
-      echo "|  7 - Sherlock                                            |";
+      echo "|  7 - Sherlock + BlackBird                                |";
       echo "|  6 - Restablecer red                                     |";
       echo "|  5 - Dejar sin red                                       |";
       echo "|  4 - Ver S.O de un equipo                                |";
@@ -250,10 +250,15 @@ do
 
         python3 sherlock $usr
 
-        sleep 60
+        sleep 5
 
         cd ..
 
+ 	cd blackbird
+  	python3 blackbird.py -u $usr
+   	cd ..
+    	sleep 60
+    	
         ;;
 
         8)
