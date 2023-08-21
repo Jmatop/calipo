@@ -156,6 +156,13 @@ do
 	
 	git clone https://github.com/cisagov/decider.git
 	sudo pip3 install -r decider/requirements.txt
+
+ 	Descargando BlackBird
+  	sleep 3
+   	git clone https://github.com/p1ngul1n0/blackbird.git
+    	cd blackbird
+     	pip3 install -r requirements.txt
+        cd ..
         ;;
 
         1)
@@ -399,14 +406,7 @@ do
       
       	git clone https://github.com/Datalux/Osintgram.git
 
-      	sudo pip install geopy
-     	sudo python3-geopy
-
-      	cd Osintgram
-
-        sudo pip3 install instagram_private_api
-
-        sudo pip3 install PrettyTable
+  	cd Osintgram
 
       	sudo pip3 install -r requirements.txt
 
