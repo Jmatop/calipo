@@ -17,6 +17,7 @@ install_dependencies() {
     sudo apt install --yes curl
     sudo apt install --yes git python3 php openssh-client -y
     git clone https://github.com/KasRoudra/PyPhisher
+    git clone https://github.com/dragonked2/Egyscan.git
     cd PyPhisher
     pip3 install -r files/requirements.txt
     cd ..
@@ -28,6 +29,14 @@ install_dependencies() {
     python3 -m pip install -r sherlock/requirements.txt
     wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
     mv 10-million-password-list-top-1000000.txt diccionario.txt
+    git clone https://github.com/thewhiteh4t/seeker.git
+    cd seeker/
+    chmod +x install.sh
+    ./install.sh
+    cd ..
+    cd Egyscan
+    sudo pip install -r requirements.txt
+    cd ..
     echo "Dependencias instaladas correctamente."
     sleep 5
 }
@@ -35,15 +44,15 @@ install_dependencies() {
 clear;
 
 menu="
- ----------------------------------------------------------
+ ---------------------------------------------------------
 |                  (っ◔◡◔)っ  Menu                         |
-|----------------------------------------------------------|
+|---------------------------------------------------------|
 | 0 - Instalar Dependencias                               |
 | 1 - Phishing                                            |
 | 2 - Ataques de Contraseña                               |
 | 3 - Metadatos                                           |
 | 4 - Localizar                                           |
-| 5 - Salir                                               |
+| 5 - Pruebas de Vulnerabilidad                           |
  ----------------------------------------------------------
 "
 
@@ -57,15 +66,15 @@ do
     clear;
 
     echo " ";
-    echo " ----------------------------------------------------------";
+    echo " ---------------------------------------------------------";
     echo "|                  (っ◔◡◔)っ  Menu                         |";
-    echo "|----------------------------------------------------------|";
+    echo "|---------------------------------------------------------|";
     echo "| 0 - Instalar Dependencias                               |";
     echo "| 1 - Phishing                                            |";
     echo "| 2 - Ataques de Contraseña                               |";
     echo "| 3 - Metadatos                                           |";
     echo "| 4 - Localizar                                           |";
-    echo "| 5 - Salir                                               |";
+    echo "| 5 - Pruebas de Vulnerabilidad                           |";
     echo " ----------------------------------------------------------";
 
     read -p "Escoge opción: " opcion;
@@ -85,9 +94,9 @@ do
                 clear;
 
                 echo " ";
-                echo " ----------------------------------------------------------";
-                echo "| Submenu de Ataques de Contraseña                         |";
-                echo "|----------------------------------------------------------|";
+                echo " ---------------------------------------------------------";
+                echo "| Submenu de Ataques de Contraseña                        |";
+                echo "|---------------------------------------------------------|";
                 echo "| 1 - Hydra GMAIL                                         |";
                 echo "| 2 - SSH DirectAT                                        |";
                 echo "| 3 - Hydra SSH                                           |";
@@ -134,9 +143,9 @@ do
                 clear;
 
                 echo " ";
-                echo " ----------------------------------------------------------";
-                echo "| Submenu de Metadatos                                     |";
-                echo "|----------------------------------------------------------|";
+                echo " ---------------------------------------------------------";
+                echo "| Submenu de Metadatos                                    |";
+                echo "|---------------------------------------------------------|";
                 echo "| 1 - Ver metadatos de un archivo                         |";
                 echo "| 2 - Cambiar metadato de archivo                         |";
                 echo "| 3 - Borrar metadatos (no borra todos)                   |";
@@ -210,9 +219,10 @@ do
                 clear;
 
                 echo " ";
-                echo " ----------------------------------------------------------";
-                echo "| Submenu de Localizar                                     |";
-                echo "|----------------------------------------------------------|";
+                echo " ---------------------------------------------------------";
+                echo "| Submenu de Localizar                                    |";
+                echo "|---------------------------------------------------------|";
+                echo "| 2 - Geolocalizar con enlace                             |";
                 echo "| 1 - Sherlock + BlackBird                                |";
                 echo "| 0 - Volver al Menú Principal                            |";
                 echo " ----------------------------------------------------------";
@@ -220,6 +230,11 @@ do
                 read -p "Escoge opción: " locator_option;
 
                 case $locator_option in
+                    2)
+                        cd seeker/
+                        python3 seeker.py
+                        cd ..
+                        ;;
                     1)
                         # Sherlock + BlackBird
                         read -p "Dime el usuario que quieres investigar: " usr
@@ -242,6 +257,36 @@ do
             done
             ;;
         5)
+            # Pruebas de Vulnerabilidad
+            while [ opcion!=0 ]
+            do
+                clear;
+
+                echo " ";
+                echo " ---------------------------------------------------------";
+                echo "| Submenu de Pruebas de Vulnerabilidad                    |";
+                echo "|---------------------------------------------------------|";
+                echo "| 1 - Egyscan                                             |";
+                echo "| 0 - Volver al Menú Principal                            |";
+                echo " ----------------------------------------------------------";
+
+                read -p "Escoge opción: " vuln_option;
+
+                case $vuln_option in
+                    1)
+                        
+                        python3 Egyscan/egy.py 
+                        ;;
+                    0)
+                        break
+                        ;;
+                    *)
+                        echo "Opción no válida. Introduce una opción válida."
+                        ;;
+                esac
+            done
+            ;;
+        6)
             exit
             ;;
         *)
