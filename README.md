@@ -72,3 +72,26 @@ Para ejecutar el script, sigue los siguientes pasos:
 
    ```bash
    ./nombre_del_script.sh
+
+Elige una opción del menú principal escribiendo el número correspondiente y presiona Enter.
+Agradecimientos
+Este script de automatización de hacking ético utiliza una amplia variedad de herramientas y proyectos de código abierto para llevar a cabo sus tareas. Queremos expresar nuestro agradecimiento a la comunidad de desarrolladores y colaboradores que han contribuido a estos proyectos, haciendo posible esta herramienta:
+
+Metasploit Framework
+Hydra
+Nmap
+PyPhisher
+Egyscan
+Seeker
+Sherlock
+BlackBird
+Y muchos otros proyectos de código abierto utilizados para mejorar la seguridad informática y que son fundamentales en el campo del hacking ético.
+Agradecemos a todos los desarrolladores y colaboradores que han trabajado en estos proyectos y han contribuido al avance de la seguridad informática y la ética en el hacking.
+
+Nota de Seguridad
+Este script se proporciona con fines educativos y de investigación en el campo de la seguridad informática y el hacking ético. No se debe utilizar con fines maliciosos o ilegales. El autor y los colaboradores no asumen ninguna responsabilidad por el mal uso de esta herramienta.
+
+Contribuciones
+Si deseas contribuir al desarrollo de este script o informar sobre problemas, por favor, crea un "issue" en este repositorio. Las contribuciones son bienvenidas y pueden ayudar a mejorar la funcionalidad y la seguridad de la herramienta.
+
+Importante: Este script y las herramientas que instala deben utilizarse de manera ética y legal. El hacking ético implica respetar las leyes y reglamentaciones locales y obtener siempre el permiso adecuado antes de realizar pruebas de seguridad en sistemas o redes que no te pertenecen.
