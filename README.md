@@ -1,4 +1,5 @@
 # Script de Automatización de Hacking Ético
+![image](https://github.com/Jmatop/calipo/assets/91370388/eee9d0c9-1649-4420-940f-5522083770a0)
 
 Este repositorio contiene un script de automatización de hacking ético desarrollado en Bash. El script se encarga de instalar diversas herramientas y dependencias necesarias para llevar a cabo actividades de hacking ético, así como proporciona una serie de opciones para realizar diferentes tareas relacionadas con la seguridad informática.
 
