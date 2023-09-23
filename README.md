@@ -59,7 +59,7 @@ Para ejecutar el script, sigue los siguientes pasos:
 1. Abre una terminal en tu sistema.
 2. Navega hasta el directorio donde se encuentra el script.
 3. Ejecuta el script utilizando el siguiente comando:
-*sudo bash calipo.sh*
+```bash sudo bash calipo.sh ```
 
 4. Elige una opción del menú principal escribiendo el número correspondiente y presiona Enter.
 
