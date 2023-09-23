@@ -1,62 +1,186 @@
 #!/bin/bash
 
-# Función para mostrar una barra de carga
+# Función para mostrar una barra de carga con nombre de dependencia
 show_progress() {
-    local message="$1"
-    local seconds="$2"
-    local delay="0.1"
+    local duration="$1"   # Duración en segundos
+    local dependency_name="$2"  # Nombre de la dependencia
+    local progress=0
+    local bar_length=50
+    local sleep_duration=$((duration / bar_length))
+
+    # Asegurarse de que el nombre de la dependencia tenga una longitud fija
+    dependency_name=$(printf "%-25s" "$dependency_name")
+
+    # Obtener la ruta de lolcat usando 'which' y ejecutarlo
+    local lolcat_command=$(which lolcat)
     
-    echo -n "$message ["
-    for ((i = 0; i < 10; i++)); do
+    if [ -x "$lolcat_command" ]; then
+        echo -e "Instalando \e[34m$dependency_name\e[0m" | "$lolcat_command"
+    else
+        echo -e "Instalando \e[34m$dependency_name\e[0m"
+    fi
+    
+    echo -n "["
+    for ((i = 0; i < bar_length; i++)); do
         echo -n "#"
-        sleep "$delay"
+        sleep "$sleep_duration"
     done
-    echo -n "]"
-    
-    # Simular una instalación real con el temporizador
-    sleep "$seconds"
-    echo ""
+    echo -n "] 100%"
+    echo ""  # Salto de línea después de la barra de progreso
+}
+# Función para instalar una dependencia específica
+install_dependency() {
+    local dependency_name="$1"  # Nombre de la dependencia
+    echo "Instalando $dependency_name..."
+
+    case "$dependency_name" in
+        "Actualización de paquetes")
+            sudo apt update >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Metasploit Framework")
+            sudo apt install --yes metasploit-framework >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Snap Metasploit")
+            sudo snap install metasploit-framework >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Hydra")
+            sudo apt install --yes hydra >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Nmap")
+            sudo apt install --yes nmap >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Dsniff")
+            sudo apt install --yes dsniff >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "SSH")
+            sudo apt install --yes ssh >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Nftables")
+            sudo apt install --yes nftables >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Image-ExifTool Perl")
+            sudo apt install --yes libimage-exiftool-perl >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Hping3")
+            sudo apt install --yes hping3 >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Curl")
+            sudo apt install --yes curl >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Git, Python3, PHP, SSH Client")
+            sudo apt install --yes git python3 php openssh-client -y >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "PyPhisher")
+            git clone https://github.com/KasRoudra/PyPhisher >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Egyscan")
+            git clone https://github.com/dragonked2/Egyscan.git >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "PyPhisher Requirements")
+            cd PyPhisher
+            pip3 install -r files/requirements.txt >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            cd ..
+            ;;
+        "Blackbird")
+            git clone https://github.com/p1ngul1n0/blackbird.git >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Blackbird Requirements")
+            cd blackbird
+            pip3 install -r requirements.txt >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            cd ..
+            ;;
+        "Sherlock")
+            git clone https://github.com/sherlock-project/sherlock.git >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "Sherlock Requirements")
+            python3 -m pip install -r sherlock/requirements.txt >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            ;;
+        "SecLists")
+            wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            mv 10-million-password-list-top-1000000.txt diccionario.txt
+            ;;
+        "Seeker")
+            git clone https://github.com/thewhiteh4t/seeker.git >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            cd seeker/
+            chmod +x install.sh
+            ./install.sh >/dev/null 2>&1
+            show_progress 1 "Seeker Installation"
+            cd ..
+            ;;
+        "Egyscan Requirements")
+            cd Egyscan
+            sudo pip install -r requirements.txt >/dev/null 2>&1
+            show_progress 1 "$dependency_name"
+            cd ..
+            ;;
+        *)
+            echo "Dependencia desconocida: $dependency_name"
+            ;;
+    esac
 }
 
 # Instala todas las dependencias
 install_dependencies() {
+    # Lista de dependencias a instalar
+    dependencies=(
+        "Actualización de paquetes"
+        "Metasploit Framework"
+        "Snap Metasploit"
+        "Hydra"
+        "Nmap"
+        "Dsniff"
+        "SSH"
+        "Nftables"
+        "Image-ExifTool Perl"
+        "Hping3"
+        "Curl"
+        "Git, Python3, PHP, SSH Client"
+        "PyPhisher"
+        "Egyscan"
+        "PyPhisher Requirements"
+        "Blackbird"
+        "Blackbird Requirements"
+        "Sherlock"
+        "Sherlock Requirements"
+        "SecLists"
+        "Seeker"
+        "Egyscan Requirements"
+    )
+
+    total_dependencies="${#dependencies[@]}"
+    current_dependency=0
+
     echo "Instalando dependencias..."
-    # Agrega aquí los comandos de instalación de tus dependencias
-    sudo apt update
-    sudo apt install --yes metasploit-framework
-    sudo snap install metasploit-framework
-    sudo apt install --yes hydra
-    sudo apt install --yes nmap
-    sudo apt install --yes dsniff
-    sudo apt install --yes ssh
-    sudo apt install --yes nftables
-    sudo apt install --yes libimage-exiftool-perl
-    sudo apt install --yes hping3
-    sudo apt install --yes curl
-    sudo apt install --yes git python3 php openssh-client -y
-    git clone https://github.com/KasRoudra/PyPhisher
-    git clone https://github.com/dragonked2/Egyscan.git
-    cd PyPhisher
-    pip3 install -r files/requirements.txt
-    cd ..
-    git clone https://github.com/p1ngul1n0/blackbird.git
-    cd blackbird
-    pip3 install -r requirements.txt
-    cd ..
-    git clone https://github.com/sherlock-project/sherlock.git
-    python3 -m pip install -r sherlock/requirements.txt
-    wget https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10-million-password-list-top-1000000.txt
-    mv 10-million-password-list-top-1000000.txt diccionario.txt
-    git clone https://github.com/thewhiteh4t/seeker.git
-    cd seeker/
-    chmod +x install.sh
-    ./install.sh
-    cd ..
-    cd Egyscan
-    sudo pip install -r requirements.txt
-    cd ..
+
+    while [ $current_dependency -lt $total_dependencies ]; do
+        dependency="${dependencies[$current_dependency]}"
+        install_dependency "$dependency"
+        ((current_dependency++))
+    done
+
     echo "Dependencias instaladas correctamente."
-    sleep 5
+
 }
 
 clear;
@@ -79,7 +203,7 @@ for ((i = 0; i < ${#menu}; i++)); do
     sleep 0.001
 done
 
-while [ "$opcion" != 5 ]; do
+while [ "$opcion" != 6 ]; do
     clear;
 
     echo " ";
@@ -92,6 +216,7 @@ while [ "$opcion" != 5 ]; do
     echo "| 3 - Metadatos                                           |";
     echo "| 4 - Localizar                                           |";
     echo "| 5 - Pruebas de Vulnerabilidad                           |";
+    echo "| 6 - Salir                                               |";
     echo " ----------------------------------------------------------";
 
     read -p "Escoge opción: " opcion;
@@ -99,11 +224,14 @@ while [ "$opcion" != 5 ]; do
     case $opcion in
         0)
             # Instalar todas las dependencias con barra de carga
+            echo "Instalando dependencias..."
+            sudo apt-get install lolcat --yes
+            clear
             install_dependencies &
             install_pid=$!
 
             while kill -0 $install_pid 2>/dev/null; do
-                show_progress "Instalando dependencias" 1
+                show_progress 1
             done
 
             wait $install_pid
