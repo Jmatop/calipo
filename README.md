@@ -20,43 +20,35 @@ El script proporciona una opción para instalar todas las dependencias necesaria
 
 El script ofrece diversas funcionalidades agrupadas en categorías en el menú principal. A continuación, se describen algunas de las funcionalidades clave:
 
-#### 1. Phishing
+1. **Phishing**
+   - Esta opción permite ejecutar un script llamado "PyPhisher" que se encarga de realizar ataques de phishing. A través de este script, se pueden configurar y llevar a cabo ataques de phishing de manera efectiva.
 
-Esta opción permite ejecutar un script llamado "PyPhisher" que se encarga de realizar ataques de phishing. A través de este script, se pueden configurar y llevar a cabo ataques de phishing de manera efectiva.
+2. **Ataques de Contraseña**
+   - Esta sección incluye opciones para realizar ataques de fuerza bruta en contraseñas:
+     - Ataque a cuentas de Gmail utilizando Hydra.
+     - Ataque SSH utilizando Hydra.
+     - Ejecución de comandos SSH con contraseña.
 
-#### 2. Ataques de Contraseña
+3. **Metadatos**
+   - Esta categoría incluye herramientas para trabajar con metadatos de archivos:
+     - Ver metadatos de un archivo.
+     - Cambiar metadatos de un archivo.
+     - Borrar metadatos (no borra todos).
+     - Extraer texto de imágenes.
+     - Mostrar contenido oculto de una imagen.
+     - Añadir contenido a una imagen.
+     - Fusionar texto a una imagen.
 
-Esta sección incluye opciones para realizar ataques de fuerza bruta en contraseñas:
+4. **Localizar**
+   - Esta sección proporciona opciones para realizar tareas de geolocalización y búsqueda de información en línea:
+     - Geolocalización a través de enlaces con "Seeker".
+     - Uso de "Sherlock" para buscar información en línea sobre un usuario.
+     - Uso de "BlackBird" para obtener información adicional de un usuario.
 
-- Ataque a cuentas de Gmail utilizando Hydra.
-- Ataque SSH utilizando Hydra.
-- Ejecución de comandos SSH con contraseña.
+5. **Pruebas de Vulnerabilidad**
+   - Esta categoría incluye la opción de ejecutar "Egyscan" para realizar pruebas de vulnerabilidad en sitios web y aplicaciones.
 
-#### 3. Metadatos
-
-Esta categoría incluye herramientas para trabajar con metadatos de archivos:
-
-- Ver metadatos de un archivo.
-- Cambiar metadatos de un archivo.
-- Borrar metadatos (no borra todos).
-- Extraer texto de imágenes.
-- Mostrar contenido oculto de una imagen.
-- Añadir contenido a una imagen.
-- Fusionar texto a una imagen.
-
-#### 4. Localizar
-
-Esta sección proporciona opciones para realizar tareas de geolocalización y búsqueda de información en línea:
-
-- Geolocalización a través de enlaces con "Seeker".
-- Uso de "Sherlock" para buscar información en línea sobre un usuario.
-- Uso de "BlackBird" para obtener información adicional de un usuario.
-
-#### 5. Pruebas de Vulnerabilidad
-
-Esta categoría incluye la opción de ejecutar "Egyscan" para realizar pruebas de vulnerabilidad en sitios web y aplicaciones.
-
-### Requisitos Adicionales
+## Requisitos Adicionales
 
 El script instala varias dependencias necesarias, como herramientas de hacking ético, Python, y otras, pero es posible que debas instalar algunas dependencias adicionales según tus necesidades específicas.
 
@@ -65,38 +57,32 @@ El script instala varias dependencias necesarias, como herramientas de hacking �
 Para ejecutar el script, sigue los siguientes pasos:
 
 1. Abre una terminal en tu sistema.
-
 2. Navega hasta el directorio donde se encuentra el script.
-
 3. Ejecuta el script utilizando el siguiente comando:
+sudo bash calipo.sh
 
-   ```bash
-   ./nombre_del_script.sh
-
-Elige una opción del menú principal escribiendo el número correspondiente y presiona Enter.
-
+4. Elige una opción del menú principal escribiendo el número correspondiente y presiona Enter.
 
 ## Agradecimientos
 
 Este script de automatización de hacking ético utiliza una amplia variedad de herramientas y proyectos de código abierto para llevar a cabo sus tareas. Queremos expresar nuestro agradecimiento a la comunidad de desarrolladores y colaboradores que han contribuido a estos proyectos, haciendo posible esta herramienta:
 
-- [Metasploit Framework](https://metasploit.com/): Un marco de trabajo de desarrollo y ejecución de exploits ampliamente utilizado en el campo de la seguridad informática.
+- Metasploit Framework
+- Hydra
+- Nmap
+- PyPhisher
+- Egyscan
+- Seeker
+- Sherlock
+- BlackBird
+- Y muchos otros proyectos de código abierto utilizados para mejorar la seguridad informática y que son fundamentales en el campo del hacking ético. Agradecemos a todos los desarrolladores y colaboradores que han trabajado en estos proyectos y han contribuido al avance de la seguridad informática y la ética en el hacking.
 
-- [Hydra](https://github.com/vanhauser-thc/thc-hydra): Una herramienta de ataque por fuerza bruta y diccionario muy versátil que es esencial para probar la seguridad de contraseñas.
+## Nota de Seguridad
 
-- [Nmap](https://nmap.org/): El escáner de red de código abierto más famoso y utilizado en el mundo, que proporciona información valiosa sobre sistemas y redes.
+Este script se proporciona con fines educativos y de investigación en el campo de la seguridad informática y el hacking ético. No se debe utilizar con fines maliciosos o ilegales. El autor y los colaboradores no asumen ninguna responsabilidad por el mal uso de esta herramienta.
 
-- [PyPhisher](https://github.com/KasRoudra/PyPhisher): Una herramienta de phishing en Python que simplifica la creación y ejecución de ataques de phishing.
+## Contribuciones
 
-- [Egyscan](https://github.com/dragonked2/Egyscan.git): Una herramienta de escaneo de vulnerabilidades y pruebas de seguridad diseñada para identificar posibles debilidades en aplicaciones web.
+Si deseas contribuir al desarrollo de este script o informar sobre problemas, por favor, crea un "issue" en este repositorio. Las contribuciones son bienvenidas y pueden ayudar a mejorar la funcionalidad y la seguridad de la herramienta.
 
-- [Seeker](https://github.com/thewhiteh4t/seeker): Una herramienta que permite rastrear la ubicación de dispositivos móviles a través de enlaces de seguimiento.
-
-- [Sherlock](https://github.com/sherlock-project/sherlock): Una herramienta para buscar información en línea sobre un usuario en múltiples sitios web y redes sociales.
-
-- [BlackBird](https://github.com/p1ngul1n0/blackbird.git): Una herramienta que ayuda a obtener información adicional de un usuario, como direcciones de correo electrónico y perfiles en línea.
-
-- Y muchos otros proyectos de código abierto utilizados para mejorar la seguridad informática y que son fundamentales en el campo del hacking ético.
-
-Agradecemos a todos los desarrolladores y colaboradores que han trabajado en estos proyectos y han contribuido al avance de la seguridad informática y la ética en el hacking.
-
+**Importante:** Este script y las herramientas que instala deben utilizarse de manera ética y legal. El hacking ético implica respetar las leyes y reglamentaciones locales y obtener siempre el permiso adecuado antes de realizar pruebas de seguridad en sistemas o redes que no te pertenecen.
