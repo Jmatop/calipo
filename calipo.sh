@@ -1,5 +1,23 @@
 #!/bin/bash
 
+# Función para mostrar una barra de carga
+show_progress() {
+    local message="$1"
+    local seconds="$2"
+    local delay="0.1"
+    
+    echo -n "$message ["
+    for ((i = 0; i < 10; i++)); do
+        echo -n "#"
+        sleep "$delay"
+    done
+    echo -n "]"
+    
+    # Simular una instalación real con el temporizador
+    sleep "$seconds"
+    echo ""
+}
+
 # Instala todas las dependencias
 install_dependencies() {
     echo "Instalando dependencias..."
@@ -61,8 +79,7 @@ for ((i = 0; i < ${#menu}; i++)); do
     sleep 0.001
 done
 
-while [ opcion!=5 ]
-do
+while [ "$opcion" != 5 ]; do
     clear;
 
     echo " ";
@@ -81,16 +98,22 @@ do
 
     case $opcion in
         0)
-            # Instalar todas las dependencias
-            install_dependencies
+            # Instalar todas las dependencias con barra de carga
+            install_dependencies &
+            install_pid=$!
+
+            while kill -0 $install_pid 2>/dev/null; do
+                show_progress "Instalando dependencias" 1
+            done
+
+            wait $install_pid
             ;;
         1)
             # Phishing
             python3 PyPhisher/pyphisher.py
             ;;
         2)
-            while [ opcion!=0 ]
-            do
+            while [ "$pass_option" != 0 ]; do
                 clear;
 
                 echo " ";
@@ -138,8 +161,7 @@ do
             done
             ;;
         3)
-            while [ opcion!=0 ]
-            do
+            while [ "$metadata_option" != 0 ]; do
                 clear;
 
                 echo " ";
@@ -214,8 +236,7 @@ do
             done
             ;;
         4)
-            while [ opcion!=0 ]
-            do
+            while [ "$locator_option" != 0 ]; do
                 clear;
 
                 echo " ";
@@ -257,9 +278,7 @@ do
             done
             ;;
         5)
-            # Pruebas de Vulnerabilidad
-            while [ opcion!=0 ]
-            do
+            while [ "$vuln_option" != 0 ]; do
                 clear;
 
                 echo " ";
@@ -274,7 +293,6 @@ do
 
                 case $vuln_option in
                     1)
-                        
                         python3 Egyscan/egy.py 
                         ;;
                     0)
